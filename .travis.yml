@@ -16,8 +16,8 @@ script:
 - cmake --build _build
 - cmake --build _build --target test -- ARGS=--verbose
 
-before_install:
-- pip install --user cpp-coveralls
+#before_install:
+#- pip install --user cpp-coveralls
 
-after_success:
-- coveralls --root . -E ".*gtest.*" -E ".*CMakeFiles.*"
+#after_success:
+#- coveralls --root . -E ".*gtest.*" -E ".*CMakeFiles.*"
