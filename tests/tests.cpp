@@ -1,3 +1,18 @@
+#include "Account.h"
+#include "Transaction.h"
+
+#include <gtest/gtest.h>
+#include <gmock/gmock.h>
+
+class AccountMock : public Account {
+public:
+  AccountMock(int id, int balance) : Account(id, balance) {}
+  MOCK_CONST_METHOD0(GetBalance, int());
+  MOCK_METHOD1(ChangeBalance, void(int diff));
+  MOCK_METHOD0(Lock, void());
+  MOCK_METHOD0(Unlock, void());
+};
+
 class TransactionMock : public Transaction {
 public:
 	MOCK_METHOD3(Make, bool(Account& from, Account& to, int sum));
